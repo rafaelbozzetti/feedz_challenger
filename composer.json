@@ -1,0 +1,26 @@
+{
+    "name": "feedz/challenger",
+    "description": "A Feedz's programmer challenger",
+    "license": "mit",
+    "authors": [
+        {
+            "name": "Rafael Bozzetti",
+            "email": "rafaelbozzetti@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Feedz\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Feedz\\Test\\": "testes/"
+        }
+    },
+    "require": {
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.1",
+        "php-di/php-di": "^6.2"
+    }
+}

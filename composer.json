@@ -22,6 +22,16 @@
         "slim/slim": "4.*",
         "slim/psr7": "^1.1",
         "php-di/php-di": "^6.2",
-        "slim/twig-view": "^3.1"
+        "slim/twig-view": "^3.1",
+        "twbs/bootstrap": "^4.5",
+        "components/jquery": "^3.5"
     },
+    "scripts": {
+        "post-update-cmd": [
+            "rm -rf public/bootstrap",
+            "rm -rf public/jquery",
+            "cp -R vendor/twbs/bootstrap/dist public/bootstrap",
+            "cp -R vendor/components/jquery public/jquery"
+        ]
+    }
 }

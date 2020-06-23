@@ -4,17 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feedz</title>
-    
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
 </head>
 <body>
-    <div class="main">
-        <div class="header">
+    <div id="app">
+        <header id="main-header">
             <img src="/img/feedz-logo.png" />
-        </div>
-        <div id="content">{% block content %}{% endblock %}</div>
-        <div class="footer">
-            
-        </div>
+        </header>
+        <main id="main"> 
+              {% block content %}{% endblock %}
+        </main>
     </div>
+    <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

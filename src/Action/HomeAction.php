@@ -20,12 +20,7 @@ final class HomeAction
         ResponseInterface $response
     ): ResponseInterface {
         
-        $viewData = [
-            'name' => 'World',
-            'notifications' => [
-                'message' => 'You are good!'
-            ],
-        ];
+        $viewData = [];
         
         return $this->twig->render($response, 'hello.twig', $viewData);
     }

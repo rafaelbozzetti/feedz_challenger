@@ -37,7 +37,7 @@ final class LoginSubmitAction
      * @param Session $session The session handler
      * @param UserAuth $auth The user auth
      */
-    public function __construct(Responder $responder, Session $session)
+    public function __construct(Responder $responder, Session $session, UserAuth $auth)
     {
         $this->responder = $responder;
         $this->session = $session;        

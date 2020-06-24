@@ -3,10 +3,13 @@
 use Slim\App;
 use Slim\Middleware\ErrorMiddleware;
 use Slim\Views\TwigMiddleware;
+use Feedz\Middleware\SessionMiddleware;
 
 return function (App $app) {
     // Parse json, form data and xml
     $app->addBodyParsingMiddleware();
+
+    $app->add(SessionMiddleware::class);
 
     // Twig Middleware
     $app->add(TwigMiddleware::class);

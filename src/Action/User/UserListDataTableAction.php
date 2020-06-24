@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Action\User;
+namespace Feedz\Action\User;
 
-use App\Domain\User\Service\UserListDataTable;
-use App\Responder\Responder;
+use Feedz\Domain\User\Service\UserListDataTable;
+use Feedz\Responder\Responder;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -31,6 +31,7 @@ final class UserListDataTableAction
     public function __construct(Responder $responder, UserListDataTable $userListDataTable)
     {
         $this->responder = $responder;
+
         $this->userListDataTable = $userListDataTable;
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\User\Data;
+namespace Feedz\Domain\User\Data;
 
 final class UserData
 {

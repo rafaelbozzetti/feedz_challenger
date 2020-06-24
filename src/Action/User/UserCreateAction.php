@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Action\User;
+namespace Feedz\Action\User;
 
-use App\Domain\User\Service\UserCreator;
-use App\Responder\Responder;
+use Feedz\Domain\User\Service\UserCreator;
+use Feedz\Responder\Responder;
 use Fig\Http\Message\StatusCodeInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;

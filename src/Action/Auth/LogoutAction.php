@@ -1,16 +1,22 @@
 <?php
 
-namespace Feedz\Action\User;
+namespace Feedz\Action\Auth;
 
-use App\Responder\Responder;
+use Feedz\Responder\Responder;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 /**
  * Action.
  */
-final class UserListAction
+final class LogoutAction
 {
+    /**
+     * @var SessionInterface
+     */
+    private $session;
+
     /**
      * @var Responder
      */
@@ -19,10 +25,12 @@ final class UserListAction
     /**
      * The constructor.
      *
+     * @param SessionInterface $session The session handler
      * @param Responder $responder The responder
      */
-    public function __construct(Responder $responder)
+    public function __construct(SessionInterface $session, Responder $responder)
     {
+        $this->session = $session;
         $this->responder = $responder;
     }
 
@@ -36,6 +44,9 @@ final class UserListAction
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        return $this->responder->render($response, 'user/user-list.twig');
+        // Logout user
+        $this->session->invalidate();
+
+        return $this->responder->redirect($response, 'login');
     }
 }

@@ -20,7 +20,7 @@
 
 Clone o repositório e instale as dependências:
 
-```php
+```console
 git clone https://github.com/rafaelbozzetti/feedz_challenger.git
 cd feedz_challenger
 composer install
@@ -31,7 +31,7 @@ composer update
 
 Crie uma database chamada ```feedz``` e importar o arquivo ``resources/database/feedz.sql``.
 
-```php
+```console
 mysql -u root -p feedz < resources/database/feedz.sql
 ```
 
@@ -48,7 +48,7 @@ $settings['db'] = [
 
 ### Rodando o APP
 
-```php
+```console
 php -S localhost:8000 -t public/ 
 ```
 

@@ -24,17 +24,18 @@ Clone o repositório e instale as dependências:
 git clone https://github.com/rafaelbozzetti/feedz_challenger.git
 cd feedz_challenger
 composer install
+composer update
 ```
 
 ### Configuração
 
-Voce precisará criar uma database chamada feedz e importar o arquivo ``resources/database/feedz.sql``.
+Crie uma database chamada ```feedz``` e importar o arquivo ``resources/database/feedz.sql``.
 
 ```php
-$mysq -u root -p feedz < resources/database/feeds.sql
+mysql -u root -p feedz < resources/database/feedz.sql
 ```
 
-Depois deve-se configurar os parametros de conexao com o banco em ``app/config/settings.php``
+Depois deve-se configurar os usuario e senha do seu banco ``app/config/settings.php`` nas linhas 55 e 57.
 
 ```php
 $settings['db'] = [
@@ -52,6 +53,6 @@ php -S localhost:8000 -t public/
 ```
 
 ### Acesso
-
+ * acesso: http://localhost:8000/
  * usuario: admin@feedz.com.br
  * senha: sawa

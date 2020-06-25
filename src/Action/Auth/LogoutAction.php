@@ -44,9 +44,12 @@ final class LogoutAction
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
+
         // Logout user
         $this->session->invalidate();
 
-        return $this->responder->redirect($response, 'login');
+        header('Location: /');
+        exit;
+
     }
 }

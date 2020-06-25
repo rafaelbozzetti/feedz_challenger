@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Middleware;
+namespace Feedz\Middleware;
 
-use App\Domain\User\Data\UserAuthData;
-use App\Domain\User\Service\UserAuth;
-use App\Responder\Responder;
+use Feedz\Domain\User\Data\UserAuthData;
+use Feedz\Domain\User\Service\UserAuth;
+use Feedz\Responder\Responder;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -67,7 +67,6 @@ final class UserAuthMiddleware implements MiddlewareInterface
             return $handler->handle($request);
         }
 
-        // User is not logged in. Redirect to login page.
         return $this->responder->redirect($this->responder->createResponse(), 'login');
     }
 }

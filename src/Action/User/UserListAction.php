@@ -2,7 +2,7 @@
 
 namespace Feedz\Action\User;
 
-use App\Responder\Responder;
+use Feedz\Responder\Responder;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 

@@ -20,6 +20,8 @@ final class LoginSubmitAction
      */
     private $responder;
 
+    private $response;
+
     /**
      * @var Session
      */
@@ -62,23 +64,20 @@ final class LoginSubmitAction
 
         $user = $this->auth->authenticate($email, $password);
 
-        echo '<pre>';
-        print_r($user);
-        exit;
-
         $flash = $this->session->getFlashBag();
         $flash->clear();
 
         if ($user) {
             $this->startUserSession($user);
-            $flash->set('success', __('Login successfully'));
-            $url = 'user-list';
+            $url = '/users';
         } else {
-            $flash->set('error', __('Login failed!'));
-            $url = 'login';
+            $url = '/';
         }
 
-        return $this->responder->redirect($response, $url);
+        # workaround fuck
+        header('Location: /users');
+        exit;
+        //return $this->responder->redirect($response, $url);
     }
 
     /**

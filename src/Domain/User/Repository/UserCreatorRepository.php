@@ -15,16 +15,16 @@ class UserCreatorRepository
     /**
      * @var PDO The database connection
      */
-    private $connection;
+    private $queryFactory;
 
     /**
      * Constructor.
      *
      * @param PDO $connection The database connection
      */
-    public function __construct(PDO $connection)
+    public function __construct(QueryFactory $queryFactory)
     {
-        $this->connection = $connection;
+        $this->queryFactory = $queryFactory;
     }
 
     /**
@@ -36,10 +36,13 @@ class UserCreatorRepository
      */
     public function insertUser(array $user): int
     {
+
+        $password = password_hash($user['password'], PASSWORD_DEFAULT);
+
         $row = [
             'name' => $user['name'],
             'email' => $user['email'],
-            'password' => $user['password']
+            'password' => $password
         ];
 
         $sql = "INSERT INTO users SET 
@@ -47,8 +50,6 @@ class UserCreatorRepository
                 email=:email, 
                 password=:password;";
 
-        $this->connection->prepare($sql)->execute($row);
-
-        return (int)$this->connection->lastInsertId();
+        return (int)$this->queryFactory->newInsert(TableName::USERS, $row)->execute()->lastInsertId();
     }
 }

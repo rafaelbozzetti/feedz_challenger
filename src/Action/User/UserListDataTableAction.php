@@ -6,6 +6,7 @@ use Feedz\Domain\User\Service\UserListDataTable;
 use Feedz\Responder\Responder;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Slim\Views\Twig;
 
 /**
  * Action.
@@ -22,17 +23,21 @@ final class UserListDataTableAction
      */
     private $userListDataTable;
 
+    private $twig;
+
     /**
      * The constructor.
      *
      * @param Responder $responder The responder
      * @param UserListDataTable $userListDataTable The service
      */
-    public function __construct(Responder $responder, UserListDataTable $userListDataTable)
+    public function __construct(Responder $responder, UserListDataTable $userListDataTable, Twig $twig)
     {
         $this->responder = $responder;
 
         $this->userListDataTable = $userListDataTable;
+
+        $this->twig = $twig;
     }
 
     /**
@@ -47,6 +52,8 @@ final class UserListDataTableAction
     {
         $params = (array)$request->getParsedBody();
 
-        return $this->responder->json($response, $this->userListDataTable->listAllUsers($params));
+        $data = $this->userListDataTable->listAllUsers(array());
+        
+        return $this->twig->render($response, 'users.twig', $data);
     }
 }

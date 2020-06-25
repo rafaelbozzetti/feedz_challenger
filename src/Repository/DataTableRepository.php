@@ -213,7 +213,7 @@ class DataTableRepository implements RepositoryInterface
 
         $rows = $query->execute()->fetchAll(StatementInterface::FETCH_TYPE_ASSOC);
         if (empty($rows)) {
-            throw new DomainException(__('Columns not found in table: %s', $table));
+            throw new DomainException('Columns not found in table: %s'. $table);
         }
 
         $result = [];

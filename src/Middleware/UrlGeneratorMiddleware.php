@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Middleware;
+namespace Feedz\Middleware;
 
-use App\Routing\UrlGenerator;
+use Feedz\Routing\UrlGenerator;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;

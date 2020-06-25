@@ -47,15 +47,12 @@ final class UserCreateAction
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        // Collect input from the HTTP request
         $formData = (array)$request->getParsedBody();
-
+        
         // Invoke the Domain with inputs and retain the result
-        $userId = $this->userCreator->createUserFromArray($formData);
+        $userId = $this->userCreator->createUser($formData);
 
-        // Build the HTTP response
-        return $this->responder
-            ->json($response, ['user_id' => $userId])
-            ->withStatus(StatusCodeInterface::STATUS_CREATED);
+        header('Location: /users');
+        exit;
     }
 }

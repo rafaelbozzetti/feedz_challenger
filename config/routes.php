@@ -11,21 +11,16 @@ return function (App $app) {
   $app->post('/auth',
     \Feedz\Action\Auth\LoginSubmitAction::class);
 
+  $app->get('/logout',
+    \Feedz\Action\Auth\LogoutAction::class);
+
   $app->get('/users',
-    \Feedz\Action\User\UserListDataTableAction::class);
+    \Feedz\Action\User\UserListDataTableAction::class)->add(UserAuthMiddleware::class);
 
-    // User
-  // $app->group('/users', function (RouteCollectorProxy $group) {
+  $app->get('/users/add',
+    \Feedz\Action\User\UserCreateFormAction::class)->add(UserAuthMiddleware::class);
 
-  //   $group->get('',
-  //     \Feedz\Action\User\UserDataTableAction::class);
-
-  //   $group->get('{:id}',
-  //     \Feedz\Action\User\UserListAction::class);
-
-  //   $group->post('',
-  //     \Feedz\Action\User\UserCreateAction::class);
-
-  //   });
+  $app->post('/users/add',
+    \Feedz\Action\User\UserCreateAction::class)->add(UserAuthMiddleware::class);
 
 };

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domain\User\Service;
+namespace Feedz\Domain\User\Service;
 
-use App\Domain\User\Repository\UserCreatorRepository;
-use App\Exception\ValidationException;
+use Feedz\Domain\User\Repository\UserCreatorRepository;
+use Feedz\Exception\ValidationException;
 
 /**
  * Service.
@@ -72,7 +72,7 @@ final class UserCreator
         }
 
         if ($errors) {
-            throw new ValidationException('Please check your input', $errors);
+            throw new ValidationException('Please check your input', $errors, 1, 1);
         }
     }
 }

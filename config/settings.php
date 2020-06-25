@@ -48,31 +48,15 @@ $settings['session'] = [
     'cache_expire' => 0,
 ];
 
-// $settings['db'] = [
-//     'driver' => 'mysql',
-//     'host' => 'localhost',
-//     'username' => 'root',
-//     'database' => 'feedz',
-//     'password' => 'root',
-//     'charset' => 'utf8mb4',
-//     'collation' => 'utf8mb4_unicode_ci',
-//     'flags' => [
-//         // Turn off persistent connections
-//         PDO::ATTR_PERSISTENT => false,
-//         // Enable exceptions
-//         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-//         // Emulate prepared statements
-//         PDO::ATTR_EMULATE_PREPARES => true,
-//         // Set default fetch mode to array
-//         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-//     ],
-// ];
 
 $settings['db'] = [
     'driver' => \Cake\Database\Driver\Mysql::class,
     'host' => 'localhost',
-    'encoding' => 'utf8mb4',
-    'collation' => 'utf8mb4_unicode_ci',
+    'username' => 'root',
+    'database' => 'feedz',
+    'password' => 'sawa',    
+    'encoding' => 'utf8',
+    'collation' => 'utf8_unicode_ci',
     // Enable identifier quoting
     'quoteIdentifiers' => true,
     // Set to null to use MySQL servers timezone

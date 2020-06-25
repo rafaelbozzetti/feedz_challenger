@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exception;
+namespace Feedz\Exception;
 
 use RuntimeException;
 use Throwable;

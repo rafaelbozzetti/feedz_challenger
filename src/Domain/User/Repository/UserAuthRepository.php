@@ -25,13 +25,13 @@ final class UserAuthRepository
     }
 
     /**
-     * Find user by username.
+     * Find user by email.
      *
-     * @param string $username Username
+     * @param string $email Email
      *
      * @return array The user
      */
-    public function findUserByUsername(string $username): array
+    public function findUserByUsername(string $email): array
     {
         $query = $this->queryFactory->newSelect('users');
 
@@ -39,12 +39,10 @@ final class UserAuthRepository
             'id',
             'password',
             'email',
-            'locale',
         ]);
 
         $query->andWhere([
-            'username' => $username,
-            'enabled' => 1,
+            'email' => $email,
         ]);
 
         $row = $query->execute()->fetch('assoc');

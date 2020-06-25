@@ -6,6 +6,8 @@ use Slim\Factory\AppFactory;
 use Slim\Middleware\ErrorMiddleware;
 use Slim\Views\Twig;
 use Slim\Views\TwigMiddleware;
+use Cake\Database\Connection;
+use Selective\BasePath\BasePathMiddleware;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Slim\Interfaces\RouteParserInterface;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;

@@ -35,7 +35,7 @@ Crie uma database chamada ```feedz``` e importar o arquivo ``resources/database/
 mysql -u root -p feedz < resources/database/feedz.sql
 ```
 
-Depois deve-se configurar os usuario e senha do seu banco ``app/config/settings.php`` nas linhas 55 e 57.
+Depois deve-se configurar os usuario e senha do seu banco ``config/settings.php`` nas linhas 55 e 57.
 
 ```php
 $settings['db'] = [

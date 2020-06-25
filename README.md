@@ -27,7 +27,7 @@ composer install
 composer update
 ```
 
-### Configuração
+### Configuração Manual
 
 Crie uma database chamada ```feedz``` e importar o arquivo ``resources/database/feedz.sql``.
 
@@ -43,14 +43,24 @@ $settings['db'] = [
     'host' => 'localhost',
     'username' => 'root',
     'database' => 'feedz',
-    'password' => 'sawa',
+    'password' => 'xxx',
 ```
 
-### Rodando o APP
+Para rodar a aplicação:
 
 ```console
 php -S localhost:8000 -t public/ 
 ```
+
+### Configuração via docker
+
+O projeto pode rodar via docker, não sendo necessário os passos anteriores.
+
+```console
+docker-composer up
+```
+
+Aguarde os containers subirem completamente.
 
 ### Acesso
  * acesso: http://localhost:8000/

@@ -51,10 +51,10 @@ $settings['session'] = [
 
 $settings['db'] = [
     'driver' => \Cake\Database\Driver\Mysql::class,
-    'host' => 'localhost',
-    'username' => 'root',
+    'host' => 'db',
+    'username' => 'feedz',
     'database' => 'feedz',
-    'password' => 'sawa',    
+    'password' => 'feedz',
     'encoding' => 'utf8',
     'collation' => 'utf8_unicode_ci',
     // Enable identifier quoting

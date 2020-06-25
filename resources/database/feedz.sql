@@ -6,3 +6,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+INSERT INTO users (name,email,password) 
+VALUES ('Admin', 'admin@feedz.com.br', '$2y$10$tO5N63cfLQdZ6/dJcpix2OkGOSbpVl2lVbDyRhzRdlhsrR2aHr..y');

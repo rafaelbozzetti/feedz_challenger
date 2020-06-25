@@ -10,12 +10,10 @@ services:
       - XDEBUG_CONFIG=remote_host=host.docker.internal
       - MYSQL_DATABASE=feedz
       - MYSQL_USER=root
-      - MYSQL_PASSWORD=root
+      - MYSQL_PASSWORD=sawa
       - MYSQL_HOST=db
     ports:
       - "8080:80"
-        #    command: ["composer", "install"]
-        #    command: ["composer", "update"]
     volumes:
       - .:/var/www/html
     depends_on:
@@ -27,7 +25,7 @@ services:
       - "3307:3306"
     environment:
       - MYSQL_DATABASE=feedz
-      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_ROOT_PASSWORD=sawa
     volumes:
       - "./resources/docker/config/my.cfg:/etc/mysql/conf.d/config-file.cnf"
       - "./resources/database/feedz.sql:/docker-entrypoint-initdb.d/1-schema.sql"

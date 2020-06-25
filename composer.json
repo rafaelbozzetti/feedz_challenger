@@ -21,6 +21,9 @@
     "require": {
         "slim/slim": "4.*",
         "slim/psr7": "^1.1",
+        "selective/array-reader": "^1",
+        "selective/basepath": "^1",
+        "selective/validation": "^0.11",
         "php-di/php-di": "^6.2",
         "slim/twig-view": "^3.1",
         "twbs/bootstrap": "^4.5",
@@ -35,5 +38,8 @@
             "cp -R vendor/twbs/bootstrap/dist public/bootstrap",
             "cp -R vendor/components/jquery public/jquery"
         ]
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^0.12.31"
     }
 }

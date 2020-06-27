@@ -45,11 +45,18 @@ class UserCreatorRepository
             'password' => $password
         ];
 
-        $sql = "INSERT INTO users SET 
-                name=:name, 
-                email=:email, 
-                password=:password;";
-
         return (int)$this->queryFactory->newInsert(TableName::USERS, $row)->execute()->lastInsertId();
+    }
+
+    public function userExist(array $user): int
+    {
+        $email = $user['email'];
+        $res = $this->queryFactory->newQuery()
+                                  ->select('id')
+                                  ->from(TableName::USERS)
+                                  ->where("`email` = '$email'")
+                                  ->execute()
+                                  ->fetch();
+        return (int)$res;
     }
 }

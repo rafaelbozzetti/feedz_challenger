@@ -37,13 +37,19 @@ final class UserCreator
         // Input validation
         $this->validateNewUser($data);
 
+        if($this->userExist($data)) {
+            return false;
+        }
+
         // Insert user
         $userId = $this->repository->insertUser($data);
 
-        // Logging here: User created successfully
-        //$this->logger->info(sprintf('User created successfully: %s', $userId));
-
         return $userId;
+    }
+
+    public function userExist(array $data): int
+    {
+        return $this->repository->userExist($data);
     }
 
     /**

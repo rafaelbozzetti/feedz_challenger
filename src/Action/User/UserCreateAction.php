@@ -7,6 +7,7 @@ use Feedz\Responder\Responder;
 use Fig\Http\Message\StatusCodeInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * Action.
@@ -24,15 +25,21 @@ final class UserCreateAction
     private $userCreator;
 
     /**
+     * @var Session
+     */
+    private $session;
+
+    /**
      * The constructor.
      *
      * @param Responder $responder The responder
      * @param UserCreator $userCreator The service
      */
-    public function __construct(Responder $responder, UserCreator $userCreator)
+    public function __construct(Responder $responder, Session $session, UserCreator $userCreator)
     {
         $this->responder = $responder;
         $this->userCreator = $userCreator;
+        $this->session = $session;
     }
 
     /**
@@ -51,7 +58,15 @@ final class UserCreateAction
         
         // Invoke the Domain with inputs and retain the result
         $userId = $this->userCreator->createUser($formData);
-
+        if(! $userId ) {
+            $flash = $this->session->getFlashBag();
+            $flash->clear();
+            $flash->set('error', 'Usuário existente');
+            
+            header('Location: /users/add');
+            exit;
+            //return $this->responder->redirect($response, 'user-add');
+        }
         header('Location: /users');
         exit;
     }

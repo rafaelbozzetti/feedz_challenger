@@ -10,6 +10,7 @@
             </div>    
         </div>
         <div class="card-body">
+            {% include 'flash.twig' %}
             <form action="/users/add" method="post"> 
             <div class="form-group">
                 <label for="email">Email address</label>

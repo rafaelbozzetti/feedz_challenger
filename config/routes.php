@@ -18,7 +18,7 @@ return function (App $app) {
     \Feedz\Action\User\UserListDataTableAction::class)->add(UserAuthMiddleware::class);
 
   $app->get('/users/add',
-    \Feedz\Action\User\UserCreateFormAction::class)->add(UserAuthMiddleware::class);
+    \Feedz\Action\User\UserCreateFormAction::class)->add(UserAuthMiddleware::class)->setName('user-add');
 
   $app->post('/users/add',
     \Feedz\Action\User\UserCreateAction::class)->add(UserAuthMiddleware::class);

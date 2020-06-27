@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpFoundation\Session\Storage\MockArraySessionStorage;
 use Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage;
+use Twig\TwigFunction;
 
 
 return [
@@ -49,7 +50,17 @@ return [
 
         // Add extension here
         // ...
-        
+
+        /** @var FlashBagInterface $flashbag */
+        $flashbag = $container->get(Session::class)->getFlashBag();
+        $environment = $twig->getEnvironment();
+        $environment->addGlobal('flashbag', $flashbag);
+        $environment->addFunction(new TwigFunction(
+            'flash',
+            function (string $key, $default = null) use ($flashbag) {
+                return $flashbag->get($key, $default ?? [])[0] ?? null;
+            }
+        ));
         return $twig;
     },
     

@@ -15,7 +15,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Feedz\\Test\\": "testes/"
+            "Feedz\\Test\\": "tests/"
         }
     },
     "require": {
@@ -40,6 +40,7 @@
         ]
     },
     "require-dev": {
-        "phpstan/phpstan": "^0.12.31"
+        "phpstan/phpstan": "^0.12.31",
+        "phpunit/phpunit": "^9.2"
     }
 }
